@@ -1,0 +1,17 @@
+RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} ClaudeBot/1\.0 [NC]
+RewriteRule .* - [F]
+
+## GURU SUPPORT ADDED TO PREVENT ABUSE
+BrowserMatchNoCase DotBot bad_bot
+Order Deny,Allow
+Deny from env=bad_bot
+## END GURU SUPPORT
+
+RewriteRule ^bottraffic999.xyz$ - [F]
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/bottraffic999.xyz
+RewriteRule ^(.*)$ - [F,L]
+</IfModule>
